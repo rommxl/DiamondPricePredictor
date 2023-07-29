@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static  'css/home.css' %}">
+</head>
+<header>
+    <div class="logo">
+        <img src="{% static 'img/logo-color.png' %}" alt="logo">
+    </div>
+</header>
+
+<body>
+    <div class="bodycontainer">
+        <div class="container">
+            <div>
+                <p class="description">Describe the Gem,<br>
+                    Get the price</p>
+            </div>
+        
+            <div class="formholder">
+                <form action="predictor" method="post">
+                    {% csrf_token %}
+                    <input type="number" step="0.01" placeholder="Weight in Carat" required name = "carat">
+                    <select name="cut">
+                        <option value="1" disabled selected>Cut Quality</option>
+                        <option value="1">Fair</option>
+                        <option value="2">Good</option>
+                        <option value="3">Very Good</option>
+                        <option value="4">Premium</option>
+                        <option value="5">Ideal</option>
+                    </select>
+                    <input type="number" placeholder="Table in mm" required name = "table">
+                    <select name="clarity" >
+                        <option value="1" disabled selected>Clarity</option>
+                        <option value="1">I1</option>
+                        <option value="2">SI2</option>
+                        <option value="3">SI1</option>
+                        <option value="4">VS2</option>
+                        <option value="5">VS1</option>
+                        <option value="6">VVS2</option>
+                        <option value="7">VVS1</option>
+                        <option value="8">IF</option>
+                    </select>
+                    <select name="color">
+                        <option value="1" disabled selected>Color</option>
+                        <option value="1">J</option>
+                        <option value="2">I</option>
+                        <option value="3">H</option>
+                        <option value="4">G</option>
+                        <option value="5">F</option>
+                        <option value="6">E</option>
+                        <option value="7">D</option>
+                    </select>
+                    <input type="number" step="0.01" placeholder="length in mm" required name = "x">
+                    <input type="number" step="0.01" placeholder="width in mm" required name = "y">
+                    <input type="number" step="0.01" placeholder="depth in mm" required name = "z">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
